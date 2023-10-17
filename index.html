@@ -76,6 +76,10 @@
                 <label for="pregacao">Texto bíblico da Pregação:</label>
                 <input type="text" id="pregacao" name="pregacao">
             </div>
+            <div>
+                <label for="numeroWhatsapp">Número do Whatsapp:</label>
+                <input type="text" id="numeroWhatsapp" name="numeroWhatsapp">
+            </div>
             <button type="button" onclick="enviarWhatsapp()">Enviar para Whatsapp</button>
         </form>
     </div>
@@ -91,10 +95,12 @@
                 }
             }
 
-            var numeroWhatsapp = prompt("Digite o número do Whatsapp:");
+            var numeroWhatsapp = document.getElementById("numeroWhatsapp").value;
 
             if (numeroWhatsapp) {
-                window.open("wa.me/send?phone=" + numeroWhatsapp + "&text=" + encodeURIComponent(mensagem));
+                window.open("https://web.whatsapp.com/send?phone=" + numeroWhatsapp + "&text=" + encodeURIComponent(mensagem));
+            } else {
+                alert("Por favor, insira um número de Whatsapp.");
             }
         }
     </script>
